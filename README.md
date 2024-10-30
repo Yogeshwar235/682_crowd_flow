@@ -12,7 +12,18 @@ conda activate compsci682
 ```
 5. Download the dataset using the following command:
 ```bash
-python download_datasets.py
+python scripts/download_datasets.py
+
+cat tmp/682_proj_datasets.tar.zst.part_0* > tmp/682_proj_datasets.tar.zst
+
+shasum -c 682_proj_datasets-CHECKSUM tmp682_proj_datasets.tar.zst
+
+# if zstd is not installed, install it using the following command
+
+brew install zstd
+
+tar --zstd -xf tmp/682_proj_datasets.tar.zst
+
 ```
 
 
